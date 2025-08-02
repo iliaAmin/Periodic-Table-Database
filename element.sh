@@ -19,3 +19,9 @@ ELEMENT_INFO=$($PSQL "
      OR name = INITCAP('$1');
 ")
 
+# If no result, print error
+if [[ -z $ELEMENT_INFO ]]; then
+  echo "I could not find that element in the database."
+  exit
+fi
+
